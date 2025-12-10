@@ -78,7 +78,7 @@ Este projeto foi entregue com código aberto para hospedagem própria.
 ## 👨‍💻 Desenvolvedor
 
 * **[SEU NOME]** - *Desenvolvedor Full Stack*
-* [LinkedIn](https://linkedin.com/in/seu-perfil) | [Email](mailto:seu.email@exemplo.com)
+* [LinkedIn](https://www.linkedin.com/in/rodrigo-gandarela-02473434b/) | [Email](rodrigogsfduca@gmail.com)
 
 ---
 *© 2025 Sky ALP Engineering. Todos os direitos reservados.*
