@@ -4,7 +4,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Flask](https://img.shields.io/badge/Flask-2.0%2B-green)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange)
+![Status](https://img.shields.io/badge/Status-%20Concluído-green)
 
 ## 📌 Sobre o Projeto
 
