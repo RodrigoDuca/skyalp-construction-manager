@@ -78,7 +78,7 @@ Este projeto foi entregue com código aberto para hospedagem própria.
 ## 👨‍💻 Desenvolvedor
 
 * **RODRIGO GANDARELA SOARES DE FARIAS DUCA** - *Desenvolvedor Full Stack*
-* [LinkedIn](https://www.linkedin.com/in/rodrigo-gandarela-02473434b/) | [Email](rodrigogsfduca@gmail.com)
+* [LinkedIn](https://www.linkedin.com/in/rodrigo-gandarela-02473434b/) | [Email](mailto:rodrigogsfduca@gmail.com)
 
 ---
 *© 2025 Sky ALP Engineering. Todos os direitos reservados.*
