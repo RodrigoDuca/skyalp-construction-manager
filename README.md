@@ -31,8 +31,8 @@
 * **Formação:** Desenvolvedor Full Stack / Engenheiro da Computação
 * **Versão da Build:** 1.0.0
 * **Contato:** `rodrigosfduca@gmail.com`
-* **LinkedIn:** `/rodrigo-gandarela-02473434b`
-* **Github:** `/RodrigoDuca`
+* **LinkedIn:** [linkedin.com/in/rodrigo-gandarela-02473434b](https://www.linkedin.com/in/rodrigo-gandarela-02473434b)
+* **Github:** [github.com/RodrigoDuca](https://github.com/RodrigoDuca)
 
 **Responsável pelo ciclo de vida completo:**
 * Planejamento
@@ -166,4 +166,119 @@ Abaixo está o modelo de dados, com explicações aprofundadas das entidades pri
 ### 5.5 Esquema ER (Descrito)
 * **Obra** 1 — N **Etapas**
 * **Obra** 1 — N **Registros**
-* **Funcionário** M — N **Ob
+* **Funcionário** M — N **Obra**
+* **Solicitações** (Independentes)
+
+---
+
+## 6. API E ENDPOINTS (ESPECIFICAÇÃO FORMAL)
+
+### 6.1 Padrões Gerais
+* Todas as requisições retornam JSON (exceto renderização de templates).
+* Códigos HTTP padronizados.
+* Sessão armazenada por cookies seguros.
+
+### 6.2 Endpoints Principais
+* `/login` → Entrada de credenciais.
+* `/api/dashboard_analytics` → Retorna dados agregados da obra + gráfico Base64.
+* `/api/enviar_contato` → Registra lead externo.
+
+---
+
+## 7. LÓGICA FUNCIONAL DETALHADA
+
+### 7.1 Autenticação
+* Sessão criptografada.
+* Validação constante de tipo de acesso (Middleware/Decorators).
+
+### 7.2 Motor de Analytics
+* Usa **Matplotlib**.
+* Exporta gráficos como Base64.
+* Zero dependência de processamento no browser do cliente.
+
+### 7.3 Fluxo do Diário
+1.  Operador cria entrada.
+2.  Sistema armazena timestamp, autor e imagem.
+3.  Dashboard atualiza os contadores automaticamente.
+
+---
+
+## 8. REGRAS DE NEGÓCIO (FORMALIZAÇÃO)
+
+1.  Apenas equipe vinculada pode registrar etapas em uma obra específica.
+2.  Obra só pode ser marcada como "Finalizada" se **100%** das etapas estiverem concluídas.
+3.  Registros diários **não podem ser apagados** (garantia de compliance e auditoria).
+4.  Leads devem ser exibidos estritamente em ordem cronológica.
+
+---
+
+## 9. SEGURANÇA E COMPLIANCE
+
+### 9.1 Hardening
+* Sanitização em todos os inputs.
+
+### 9.2 Proteções a Ameaças
+* Proteção contra **SQL Injection**.
+* Proteção contra **XSS**.
+* Proteção contra Sessões Forjadas.
+
+### 9.3 Sessões
+* Cookies com flag `HttpOnly`.
+* Sessões criptografadas no servidor.
+
+### 9.4 Logs e Auditoria
+* Rastreabilidade total das ações críticas.
+
+---
+
+## 10. INFRAESTRUTURA E DEVOPS
+
+### 10.1 Pipeline de Deploy
+1.  Build local.
+2.  Configuração de Ambiente virtual (venv).
+3.  Execução de Migrações de Banco de Dados.
+4.  Start da aplicação via **Gunicorn**.
+5.  Proxy Reverso configurado no **NGINX**.
+
+### 10.2 Escalabilidade
+* Arquitetura preparada para migração futura para microserviços.
+* Possível uso de *background workers* (ex: Celery) para processamento pesado.
+
+---
+
+## 11. REQUISITOS DE SISTEMA E LIMITES
+
+* **Upload máximo:** 32 MB por requisição.
+* **Timezone:** Horário forçado a UTC-3 (Brasília).
+* **Conexão DB:** Via variável de ambiente (Environment Variable).
+
+---
+
+## 12. MANUAL OPERACIONAL (VISÃO POR PERFIL)
+
+### 12.1 Perfil Gerente (Admin)
+* Visualizar todas as obras.
+* Ver dashboards analíticos completos.
+* Gerir etapas (criar, editar, excluir).
+* Visualizar leads captados.
+* Exportar dados.
+
+### 12.2 Perfil Operador
+* Registrar diário de obra.
+* Adicionar fotos e evidências.
+* Visualizar progresso da obra (Read-only).
+
+---
+
+## 13. MÓDULOS DE EXPORTAÇÃO E BACKUP
+
+O sistema suporta nativamente a exportação dos dados para:
+* **CSV** (Planilhas)
+* **JSON** (Integração)
+* **Dump SQL completo** (Backup Frio)
+
+---
+
+## 14. CONSIDERAÇÕES FINAIS
+
+Este documento consolida toda a engenharia interna, regras de negócio e detalhes da plataforma **Sky ALP**, apresentando uma visão completa para manutenção, auditoria, evolução e conformidade técnica do software.
